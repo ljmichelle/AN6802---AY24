@@ -19,6 +19,11 @@ def foodexp():
 def ethical_test():
     return(render_template("ethical_test.html"))
 
+@app.route("/foodexp_pred", methods = ["POST","GET"])
+def foodexp_pred():
+    q = float(request.form.get("q"))
+    return(render_template("foodexp_pred.html", r = q*0.4851 + 147.4))
+
 @app.route("/test_result", methods = ["POST","GET"])
 def test_result():
     answer = request.form.get("answer")
